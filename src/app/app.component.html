@@ -1,0 +1,9 @@
+
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-button routerLink="'/photos" class="navButton">Photos</button>
+  <button mat-button [routerLink]="['/photos/0/edit']" class="navButton">Upload Photo</button>
+</mat-toolbar>
+
+<div>
+  <router-outlet></router-outlet>
+</div>

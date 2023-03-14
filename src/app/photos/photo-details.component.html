@@ -1,0 +1,14 @@
+<div *ngIf="photo"  class="card photo-details-card" >
+
+    <img [src]="photo.url" class="card-img-top" [alt]="photo.title">
+    <div class="card-body">
+      <h5 class="card-title">Photo ID: {{photo.id}}</h5>
+      <h5 class="card-title">Album ID: {{photo.albumId}}</h5>
+      <p class="card-text">{{photo.title}}</p>
+      <button mat-raised-button color="primary" [routerLink]="['/photos', photo.id, 'edit']">Edit</button>
+      <button mat-raised-button color="warn" (click)="deletePhoto()">Delete</button>
+      <!-- <a class="btn btn-outline-primary" [routerLink]="['/photos', photo.id, 'edit']">Edit</a>
+      <a class="btn btn-outline-danger" (click)="deletePhoto()">Delete</a> -->
+    </div>
+
+</div>

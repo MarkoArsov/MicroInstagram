@@ -1,0 +1,37 @@
+.photos{
+margin-top: 2%;
+margin-left: 30%;
+}
+
+.spinner{
+  margin-left: 20%;
+  width: 50%;
+}
+
+.tableHead{
+    text-align: center;
+}
+
+tr:hover {
+  cursor: pointer;
+  background-color: lightblue;
+}
+
+td{
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+th{
+  text-align: center;
+}
+
+.paginator{
+  margin-top: 20px;
+  margin-right: 58%;
+}
+
+table{
+  min-width: 50%
+}

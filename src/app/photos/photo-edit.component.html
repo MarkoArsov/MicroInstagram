@@ -1,0 +1,56 @@
+
+
+<div class="container form-container">
+
+  <form novalidate [formGroup]="editForm" (ngSubmit)="savePhoto()">
+    
+    <div class="form-group">
+      <label for="exampleInputEmail1">Album ID*</label>
+      <input type="number" class="form-control" [ngClass]="{'is-invalid': validControl('albumId') }" id="albumId" placeholder="Enter Album ID" formControlName="albumId">
+      <span class="invalid-feedback" *ngIf="validControl('albumId')">Enter a valid album ID</span>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Title*</label>
+      <input type="text" class="form-control" [ngClass]="{'is-invalid': validControl('title') }" id="title" placeholder="Enter Title" formControlName="title">
+      <span class="invalid-feedback" *ngIf="validControl('title')">Title is required</span>
+    </div>
+
+    <div class="form-group">
+      <label for="url">Image URL*</label>
+      <input type="text" class="form-control" [ngClass]="{'is-invalid': validControl('url') }" id="url" placeholder="Enter Image URL" formControlName="url">
+      <span class="invalid-feedback" *ngIf="requiredUrl()">Image URL is required</span>
+      <span class="invalid-feedback" *ngIf="!requiredUrl() && invalidUrlFormat('url')">Invalid URL format</span>
+    </div>
+
+    <div class="form-group form-check">
+      <input type="checkbox"  class="form-check-input" id="addThumbnail" formControlName="addThumbnail">
+      <label class="form-check-label" for="addThumbnail">Add Thumbnail</label>
+    </div>
+
+    <div class="form-group" *ngIf="editForm.get('addThumbnail')?.value">
+      <label for="thumbUrl">Thumbnail URL</label>
+      <input type="text" class="form-control" [ngClass]="{'is-invalid': validControl('thumbnailUrl') }" id="thumbUrl" placeholder="Enter Thumbnail URL" formControlName="thumbnailUrl">
+      <span class="invalid-feedback" *ngIf="invalidUrlFormat('thumbnailUrl')">Invalid URL format</span>
+    </div>
+
+
+    <button type="submit" class="btn btn-outline-success submit-btn" [disabled]="!editForm.valid">Submit</button>
+
+</form>
+
+
+<hr>
+
+<h3 *ngIf="!editForm.valid">Input all required fields to see preview</h3>
+<h3 *ngIf="editForm.valid">Preview</h3>
+<div *ngIf="editForm.valid"  class="card photo-preview-card" >
+<img [src]="editForm.get('url')?.value" class="card-img-top" alt="No Image">
+<div class="card-body">
+  <h5 class="card-title">Photo ID: Generated</h5>
+  <h5 class="card-title">Album ID: {{editForm.get("albumId")?.value}}</h5>
+  <p class="card-text">{{editForm.get("title")?.value}}</p>
+</div>
+</div>
+
+</div>

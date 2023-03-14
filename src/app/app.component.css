@@ -1,0 +1,12 @@
+.navButton{
+    font-size: 18px;
+}
+
+.toolbar{
+    padding: 1px 50px;
+    position: sticky;
+    position: -webkit-sticky; 
+    top: 0; 
+    z-index: 1000; 
+
+}

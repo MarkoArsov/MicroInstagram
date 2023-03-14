@@ -1,0 +1,25 @@
+
+<div class="photos">
+
+    <div *ngIf="photos.length==0" class="spinner">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <table *ngIf="photos.length!=0" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef>Photo</th>
+          <td mat-cell *matCellDef="let p" class="photoData"> <img [src]="p?.thumbnailUrl"> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef>Title</th>
+            <td mat-cell *matCellDef="let p" > {{p?.title}} </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let photo; columns: displayedColumns;" [routerLink]="['/photos', photo?.id]"></tr>
+      </table>
+      <mat-paginator class="paginator" #paginator [pageSize]="4" [length]="photos.length" [pageSizeOptions]="[4, 12, 24]" aria-label="Select page" showFirstLastButtons=""></mat-paginator>
+</div>
+
+

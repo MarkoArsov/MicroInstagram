@@ -1,0 +1,18 @@
+.photo-details-card{
+    margin: auto;
+    margin-top: 2%;
+}
+
+.card {
+    flex-direction: row;
+    width: 40rem;
+
+  }
+  .card img {
+    width: 60%;
+  }
+  button{
+    display: block;
+    width: 150px;
+    margin-bottom: 20px;
+  }
