@@ -1,0 +1,31 @@
+.form-container{
+    margin-top: 2%;
+}
+
+.form-group{
+    margin-top: 16px;
+}
+
+.submit-btn{
+    margin-top: 20px;
+}
+
+.photo-details-card{
+  margin: 5px;
+  margin-bottom: 50px;
+}
+
+.card {
+    flex-direction: row;
+    width: 40rem;
+  }
+
+  .card img {
+    width: 60%;
+  }
+
+  .btn{
+    display: block;
+    width: 150px;
+    margin-bottom: 20px;
+  }
